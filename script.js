@@ -1,7 +1,6 @@
 let computerScore = 0;
 let humanScore = 0;
 
-
 function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3) + 1;
     if (randomNumber === 1) {
@@ -24,42 +23,54 @@ function playRound(humanChoice, computerChoice) {
     /* human choice is rock */
     if (humanChoice == "rock" && computerChoice == "scissors") {
         humanScore += 1;
-        return "You Win! rock beats scissors"
+        console.log("You Win! rock beats scissors")
     }
     if (humanChoice == "rock" && computerChoice == "paper") {
         computerScore += 1;
-        return "You Loose! paper beats rock"
+        console.log("You Loose! paper beats rock")
     }
     if (humanChoice == "rock" && computerChoice == "rock") {
-        return "Nobody Wins, both put rock!"
+        console.log("Nobody Wins, both put rock!")
     }
     /* human choice is paper */
     if (humanChoice == "paper" && computerChoice == "rock") {
         humanScore += 1;
-        return "You Win! paper beats rock"
+        console.log("You Win! paper beats rock")
     }
     if (humanChoice == "paper" && computerChoice == "scissors") {
         computerScore += 1;
-        return "You Loose! scissors beats paper"
+        console.log("You Loose! scissors beats paper")
     }
     if (humanChoice == "paper" && computerChoice == "paper") {
-        return "Nobody Wins, both put paper!"
+        console.log("Nobody Wins, both put paper!")
     }
     /* human choice is scissors */
     if (humanChoice == "scissors" && computerChoice == "paper") {
         humanScore += 1;
-        return "You Win! scissors beat paper"
+        console.log("You Win! scissors beat paper")
     }
     if (humanChoice == "scissors" && computerChoice == "rock") {
         computerScore += 1;
-        return "You Loose! rock beats scissors"
+        console.log("You Loose! rock beats scissors")
     }
     if (humanChoice == "scissors" && computerChoice == "scissors") {
-        return "Nobody Wins, both put scissors!"
+        console.log("Nobody Wins, both put scissors!")
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-console.log(playRound(humanSelection, computerSelection))
+function playGame() {
+    let count = 0;
+    while (count <= 4){
+        count += 1;
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        console.log("Round number: " + count)
+        playRound(humanSelection, computerSelection);
+    }
+    if (humanScore > computerScore) {
+        console.log("You Won!")
+    } else {
+        console.log("You Lost!")
+    }
+}
+console.log(playGame())
