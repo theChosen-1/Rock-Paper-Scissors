@@ -19,6 +19,8 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
+    console.log("You chose: " + humanChoice)
+    console.log("Computer chose: " + computerChoice)
     /* human choice is rock */
     if (humanChoice == "rock" && computerChoice == "scissors") {
         humanScore += 1;
@@ -60,4 +62,4 @@ function playRound(humanChoice, computerChoice) {
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+console.log(playRound(humanSelection, computerSelection))
